@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %} Numeros Aleatorios {% endblock %}
+{% block content %}
+<br>
+<div class="row">
+  <div class="col-sm-12 text">
+    <h2 >Generación de números aleatorios.</h2>
+  </div>
+</div>
+
+<br>
+<div class="card-group">
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='dardos.jpeg') }}" class="card-img-top" alt="Cuadrados Medios">
+    <div class="card-body" align="justify">
+      <h5 class="card-title">Método de los cuadrados medios.</h5>
+      <p class="card-text"> 
+        Pasos para ejecución:
+        <br>
+        - Ingresar el número de datos a generar.
+        <br>
+        - Ubicar el valor de la semilla.
+
+      </p>
+        <center>
+          <button class="boton" OnClick="location.href='/cuadradosMedios'" type="button">  Generar números aleatorios. </button>
+        </center>
+    </div>
+  </div>
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='numa.png') }}" class="card-img-top" alt="Congruencia lineal">
+    <div class="card-body" align="justify">
+      <h5 class="card-title">Método de congruencial lineal.</h5>
+      <p class="card-text">  
+        Pasos para ejecución:
+        <br>
+        - Ingresar el número de datos a generar.
+        <br>
+        - Se debe ubicar valores para X0, a, c y m.
+      </p>
+        <center>
+          <button class="boton" OnClick="location.href='/congruenciaLineal'" type="button">  Generar números aleatorios. </button>
+        </center>
+    </div>
+  </div>
+</div>
+
+
+<div class="card-group">
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='bolas.jpg') }}" class="card-img-top"
+      alt="Congruencia multiplicativo">
+    <div class="card-body" align="justify">
+      <h5 class="card-title">Método congruencial multiplícativo.</h5>
+      <p class="card-text">
+        Pasos para ejecución:
+        <br>
+        - Ingresar el número de datos a generar.
+        <br>
+        - Se debe ubicar valores para X0, a y m.
+      </p>
+        <center>
+          <button class="boton" OnClick="location.href='/congruencialMultiplicativo'" type="button">  Generar números aleatorios. </button>
+        </center>
+    </div>
+  </div>
+  <div class="card cards">
+    <img src="{{ url_for('static', filename='raros.jpg') }}" class="card-img-top" >
+    <div class="card-body" align="justify">
+    <h5 class="card-title">Distribuccion de Poisson.</h5>
+    <p class="card-text">
+      Pasos para ejecución:
+      <br>
+      - Ubicar el valor de Lambda.
+      <br>
+      - Dar click en Calcular.
+    </p>
+    <center>
+      <button class="boton" OnClick="location.href='/distribucionPoisson'" type="button"> Generar números aleatorios. </button>
+    </center>
+  </div>
+</div>
+</div>
+
+{% endblock %}

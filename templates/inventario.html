@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %} Inventario {% endblock %}
+{% block content %}
+<center>
+    <br><br>
+    <h2><strong>Gráfica del resultado del inventário.</strong></h2>
+</center>
+<br>
+
+<h3>Datos del inventario:</h3>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        <table class="dataTable table table-bordered table-hover">
+            <thead>
+                {% for i in df.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in df.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                    <td>{{ i[1][3] }}</td>
+                    <td>{{ i[1][4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+
+<div class="card border-secondary mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card text-center border-secondary">
+        <div class="card-header border-secondary" >
+            <h5>Datos del inventario.</h5>
+        </div>
+        <div class="card-body">
+            <!-- <br> -->
+            <p class="card-text">Costo total del sistema =<strong> {{datos['CTT']}}</strong></p>
+            <p class="card-text">Costo de ordenar y mantener = <strong> {{datos['MOQ']}}</strong></p>
+            <p class="card-text">Costo de orden =<strong> {{datos['CoT']}}</strong></p>
+            <p class="card-text">Cantidad de pedido optima en funsión de Q =<strong> {{datos['Q']}}</strong></p>
+            <p class="card-text">Tiempo estimado de pedido =<strong> {{datos['T']}}</strong></p>
+            <p class="card-text">Total de pedidos = <strong>{{datos['N']}}</strong></p>
+            <p class="card-text">Punto de reorden =<strong> {{datos['R']}}</strong></p>
+            <p class="card-text">Costo de mantenimiento total = <strong> {{datos['ChT']}}</strong></p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

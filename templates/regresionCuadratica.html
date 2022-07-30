@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Regresión cuadrática {% endblock %}
+{% block content %}
+{% if imagen %}
+<center>
+    <br><br><br>
+    <h2><strong>Gráfica de Regresión Cuadrática.</strong></h2>
+    <hr>
+</center>
+<br>
+<h3>Gráfico Generádo:</h3>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card cards text-center ">
+        
+    </div>
+</div>
+{% else %}
+
+<br><br><br><br>
+<center>
+    <h2><strong>Gráfica - Regresión Cuadrática</strong></h2>
+    {% if error %}
+    <div class="alert alert-success" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/regresionCuadratica" method="post">
+                <div class="mb-3">
+                    <input type="text"   class="form-control" placeholder="Ubique el nombre de X" name="xlbl" required >
+                </div>
+                <div class="mb-3">  <textarea  name="x"   rows="3" class="form-control" placeholder="Ingrese datos para X (los números deben estar separados por coma ',')" required ></textarea>
+                </div>
+                <div class="mb-3">
+                    <input type="text"  class="form-control"  placeholder="Ubique el nombre de Y"   name="ylbl"  required>
+                </div>
+                <div class="mb-3">
+                    <textarea name="y"   rows="3" class="form-control" placeholder="Ingrese datos para Y (los números deben estar separados por coma ',')" required></textarea>
+                </div>
+                <button  type="submit" class="btn boton">Graficar</button>
+            </form>
+        </div>
+    </div>
+</center>
+<br><br><br><br>
+
+{% endif %}
+{% endblock %}

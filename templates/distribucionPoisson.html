@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Distribucion de Poisson {% endblock %}
+{% block content %}
+{% if imagen %}
+<center>
+    <br><br>
+    <!-- <h4 style="font-family:monospace;"><strong>Grafica de los resultados</strong></h4> -->
+</center>
+<h3>Gráfica de los datos obtenidos <i class="bi bi-bar-chart-line"></i>:</h3>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+</div>
+{% else %}
+<br><br><br><br>
+<center>
+    <h4><strong>Números Aleatorios (Distribución de Poisson).</strong></h4>
+    {% if error %}
+    <div class="alert alert-success" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/distribucionPoisson" method="POST">
+                <div class="mb-3">
+                    <input  type="number" class="form-control" placeholder="Valor de Lambda" name="landa" required>     
+                </div>
+                <button type="submit" class="btn boton">Generar</button>
+            </form>
+        </div>
+        <div class="card cards text-center ">
+            <div class="card-header">
+                <h5>¿Qué es la Distribución de Poisson?</h5>
+                <p> Esta distribución es una de las más importantes distribuciones de variable discreta. 
+                    Sus principales aplicaciones hacen referencia a la modelización de situaciones en las que nos interesa 
+                    determinar el número de hechos de cierto tipo que se pueden producir en un intervalo de tiempo o de espacio, 
+                    bajo presupuestos de aleatoriedad y ciertas circunstancias restrictivas. Otro de sus usos frecuentes es la 
+                    consideración límite de procesos dicotómicos reiterados un gran número de veces si la probabilidad de obtener 
+                    un éxito es muy pequeña .  </p>
+            </div>
+            
+        </div>
+
+    </div>
+</center>
+
+<br><br><br><br><br><br>
+{% endif %}
+{% endblock %}

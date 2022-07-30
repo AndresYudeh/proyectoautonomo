@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %} Pronosticos {% endblock %}
+{% block content %}
+<br><br>
+<div class="card-group">
+    <div class="container bcontent">
+        <div class="col-sm-12 text">
+            <h2>Pronósticos</h2>
+        </div>       
+         <hr /><br>
+        <div class="card" style="width: 1100px;">
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                    <img class="card-img" src="{{ url_for('static', filename='gra.png') }}" alt="Suresh Dasari Card">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title">Promedio Movil</h5>
+                        <p class="card-text">El promedio móvil es un indicador de tendencias que se usan para realizar análisis de datos anteriores con la finalidad de 
+                            formar una serie de medidas que provengan de diversos subconjuntos de datos de precios, por lo tanto, tienen la capacidad de examinar las
+                             medidas de precios que disminuyen en un período de tiempo.
+                             Los promedios móviles se deben calcular después de las observaciones consecutivas de los subgrupos artificiales. Estos se pueden 
+                             utilizar en las gráficas de control para crear gráficas de promedios para los datos en determinados tiempos programados.</p>
+                        <button class="boton" OnClick="location.href='/promedioMovil'" type="button"> Calcular </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="card" style="width: 1100px;">
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                    <img class="card-img" src="{{ url_for('static', filename='suax.jpg') }}" alt="Suresh Dasari Card">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title">Suavizamiento exponencial</h5>
+                        <p class="card-text">
+                            El método de Suavizamiento Exponencial Simple (conocido también como Alisamiento Exponencial o Suavización Exponencial Simple) 
+                            corresponde a una de las metodologías más populares para realizar Pronósticos de Demanda al disponer de una serie de tiempo. 
+                            En este contexto en el artículo Pronóstico de Demanda con Alisamiento Exponencial para distintos valores de Alfa se detalla la aplicación
+                             de este método simulando su comportamiento y ajuste a los datos de la demanda real para distintos valores del parámetro de suavización 
+                             alfa (α).
+                        </p>
+                        <button class="boton" OnClick="location.href='/suavizacionExponencial'" type="button">Calcular </button>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="card" style="width: 1100px;">
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                    <img class="card-img" src="{{ url_for('static', filename='regre.png') }}" alt="Suresh Dasari Card">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title">Regresion Lineal</h5>
+                        <p class="card-text">
+                            El análisis de la regresión lineal se utiliza para predecir el valor de una variable según el valor de otra. La variable que desea predecir 
+                            se denomina variable dependiente. La variable que está utilizando para predecir el valor de la otra variable se denomina variable 
+                            independiente. Esta forma de análisis estima los coeficientes de la ecuación lineal, involucrando una o a más variables independientes que 
+                            mejor predicen el valor de la variable dependiente. 
+                        </p>
+                            <button class="boton" OnClick="location.href='/regresionLineal'" type="button"> Calcular</button>   
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+        <div class="card" style="width: 1100px;">
+            <div class="row no-gutters">
+                <div class="col-sm-5">
+                    <img class="card-img" src="{{ url_for('static', filename='cuadra.png') }}" alt="Suresh Dasari Card">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title">Regresion Cuadratica</h5>
+                        <p class="card-text">
+                            El modelo de regresión cuadrática es una alternativa cuando el modelo lineal no logra un coeficiente de determinación apropiado, 
+                            o cuando el fenómeno en estudio tiene un comportamiento que puede considerarse como parabólico.  La forma más simple de tratar de 
+                            establecer la tendencia es a través de un diagrama de dispersión o nube de puntos.Este modelo también es conocido como parabólico, 
+                            y es el caso más simple de modelos de regresión polinomiales, siendo su grado igual a 2.
+                        </p>
+                        <button class="boton" OnClick="location.href='/regresionCuadratica'" type="button">Calcular </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}

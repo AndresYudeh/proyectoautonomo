@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %} Cuadrados Medios {% endblock %}
+{% block content %}
+{% if imagen1 %}
+<center>
+    <br><br>
+    <h2><strong>Resultados Obtenidos (Met. de los Cuadrados Medios)</strong></h2>
+    <hr>
+</center>
+<h3 >Números generados:</h3>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        <table class="dataTable table table-bordered table-hover">
+            <thead>
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br><br>
+<hr>
+<h3 ><i class="bi bi-graph-up-arrow"></i> Gráfica de los números generados:</h3>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen1}}" class="img-fluid rounded-start" alt="grafica">
+    
+</div>
+{% else %}
+<br><br>
+<center>
+    <br><br>
+    <h4 ><strong>Métodos de los cuadrados medios.</strong></h4>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br><br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/cuadradosMedios" method="post">
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Ingrese aquí la cantidad de números a generar" name="n">
+                </div>
+                <div class="mb-3">
+                    <input type="number" class="form-control" placeholder="Valor de la semilla" name="r">
+                </div>
+                <button type="submit" class="btn boton "><i class="bi bi-file-earmark-diff"></i> Generar</button>
+            </form>
+        </div>
+    </div>
+</center>s
+<br><br><br><br><br><br><br>
+{% endif %}
+{% endblock %}

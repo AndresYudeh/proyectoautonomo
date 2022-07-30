@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %} Montecarlo {% endblock %}
+{% block content %}
+
+<center>
+    <br><br>
+    <h2><strong>Resultados Arrojados por la simulación.</strong></h2>
+    <hr>
+</center>
+<h3>Tabla de valores:</h3>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        {{data|safe}}
+    </div>
+</div>
+<div >
+    <br>
+    <p class="">El total fallecidos es: <strong>{{data3|safe}}</strong> </p>
+
+</div>
+<br>
+<h3>Tabla de la simulación:</h3>
+<hr>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        {{data2|safe}}
+    </div>
+</div>
+<br><br>
+<h3>Gráfica de la simulación: </h3>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{image}}" class="img-fluid rounded-start" alt="grafica">
+</div>
+{% endblock %}

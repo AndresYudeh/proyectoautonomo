@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+{% block title %} Análisis {% endblock %}
+{% block content %}
+<br>
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <h3 >Gráficos estadísticos (DataSet Accidentes de transito en Ecuador).</h3>
+    </div>
+</div>
+<br>
+<div class="card-group">
+    <div class="card cards">
+      <img src="data:image/png;base64,{{imagen1}}" class="card-img-top" alt="Grafica por fecha">
+      <div class="card-body" align="justify">
+        <h5 class="card-title">Numero de victimas en el dia.</h5>
+        <p class="card-text">Si analizamos el grafico podemos llegar a la conclusion que a las 04:00 de la mañana 
+          hay menos accidentes de transito, por otro lado a la 01:00 de la mañana de registra el mayor indice de accidentes.</p>
+        <center>
+          <button class="boton" OnClick="location.href='/FrecuenciaFecha'" type="button"><i class="bi bi-card-checklist"></i>  Mas detalles... </button>
+        </center>
+      </div>
+    </div>
+    <div class="card cards">
+      <img src="data:image/png;base64,{{imagen2}}" class="card-img-top" alt="Grafica por fecha">
+      <div class="card-body" align="justify">
+        <h5 class="card-title">Frecuencia de las diferentes clases de accidentes.</h5>
+        <p class="card-text">Los datos nos arrojan que con mas frecuencia ocurren accidentes de clase 3
+          , los accidentes de clase 4 tiene frecuencia intermedia, y por ultimo los accidentes de clase 8 son los menos
+          frecuentes.</p>
+        <center>
+          <button class="boton" OnClick="location.href='/Preciomercado'" type="button"><i class="bi bi-card-checklist"></i>  Mas detalles... </button>
+        </center>
+      </div>
+    </div>
+    <div class="card cards">
+      <img src="data:image/png;base64,{{imagen3}}" class="card-img-top" alt="Grafica por fecha">
+      <div class="card-body" align="justify">
+        <h5 class="card-title">Promedio de fallecidos en accidentes de transito por dia de semana.</h5>
+        <p class="card-text">Los datos nos arrojan que los dias sabados hay mayor indice de fallecidos
+          en accidentes de transito, y el dia con menos indice de accidentes es el miercoles.</p>
+        <center>
+          <button class="boton" OnClick="location.href='/Pagomonedas'" type="button"><i class="bi bi-card-checklist"></i>  Mas detalles... </button>
+        </center>
+      </div>
+    </div>
+</div>
+<br>
+{% endblock %}

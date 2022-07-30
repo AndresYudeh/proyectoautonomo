@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %} Promedio movil {% endblock %}
+{% block content %}
+{% if imagen %}
+<center>
+    <br><br>
+    <h2><strong>Visualización de resultados</strong></h2>
+    <hr>
+</center>
+<h3 >Tabla de valores.</h3>
+<br>
+<div class="card cards">
+    <div class="card-body">
+        <table class="dataTable table table-bordered table-hover">
+            <thead>
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                    <td>{{ i[1][3] }}</td> 
+                    <td>{{ i[1][4] }}</td>
+                    <td>{{ i[1][5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div class="card-body">
+    <p class="card-text">Media móvil tres: {{mediaMovil3}}. <br>Media móvil cuatro:{{mediaMovil4}}.</p>
+</div>
+<br><br><br>
+<hr>
+<h3> Gráfico estadístico.</h3>
+<br>
+<div class="card cards  mb-3">
+    <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+    <div class="card cards text-center ">
+    </div>
+</div>
+{% else %}
+<br><br><br><br>
+<center>
+    <h2><strong>Graficar el promédio móvil</strong></h2>
+    {% if error %}
+    <div class="alert alert-success" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <br>
+    <div class="card" style="width: 40rem;">
+        <div class="card-body">
+            <form action="/promedioMovil" method="POST">
+                <div class="mb-3">
+                    <input type="text"  class="form-control"  placeholder="Ubique el nombre de X" name="xlbl">
+                </div>
+                <div class="mb-3">
+                    <textarea  name="x"   rows="3"  class="form-control"  placeholder="Ingrese datos para X (los números deben estar separados por coma ',')" ></textarea>
+                </div>
+                <div class="mb-3">
+                    <input  type="text"   class="form-control" placeholder= "Ubique el nombre de Y"  name="ylbl" >
+                </div>
+                <div class="mb-3">
+                    <textarea name="y"    rows="3" class="form-control" placeholder="Ingrese datos para Y (los números deben estar separados por coma ',')"></textarea>
+                </div>
+                <button type="submit"  class="btn boton"  >Graficar</button>
+            </form>
+        </div>
+    </div>
+</center>
+<br><br><br><br><br>
+{% endif %}
+{% endblock %}
